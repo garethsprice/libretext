@@ -14,6 +14,8 @@ class Wordlist {
     'transformcase' => FALSE, 
     'transformcaseto' => FALSE,
     'resultlimit' => 1000,
+    'minlength' => 2,
+    'maxlength' => 32,
   );
   
   /**
@@ -27,7 +29,7 @@ class Wordlist {
     }
     $file = file($filepath);
     
-    $regex = '/^[' . $this->characters . ']+$/u';
+    $regex = '/^[' . $this->characters . ']{' . $this->options['minlength'] . ',' . $this->options['maxlength'] . '}$/u';
     if($this->options['ignorecase']) $regex .= 'i';
     
     // Use microtime to record execution time for benchmarking
