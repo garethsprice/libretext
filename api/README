@@ -1,0 +1,17 @@
+POST /api
+{
+  language: string
+  characters: string
+  punctuation: bool
+  numbers: bool
+  trimdiacritics: bool
+  ignorecase: bool
+  startuppercase: bool
+  transformcase: bool
+  transformcaseto: (upper|lower|title)
+}
+
+JSON Response:
+{
+  wordlist: "word1 word2 word3 word4"
+}

@@ -1,0 +1,7 @@
+Generated from http://fedorapeople.org/groups/harfbuzz-testing/texts/wikipedia/bz2/
+
+Trimmed to top 100000 words using:
+head -100000 ~/Downloads/en.txt > english.txt
+
+Alternate strategy is to trim to filesize:
+head -c $(( 1024 * 512 )) ~/Downloads/en.txt > english.txt
