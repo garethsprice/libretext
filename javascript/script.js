@@ -1,5 +1,5 @@
 /**
- * Javascript for FontTool
+ * Javascript for LibreText
  */
 $(document).ready(function() {
 	initializeLanguages();

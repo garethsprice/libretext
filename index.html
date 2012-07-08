@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FontTool</title>
+    <title>LibreText</title>
 
     <meta charset="utf-8">
     <meta name="description" content="A tool for generating font wordlists">
@@ -21,7 +21,7 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">FontTool</a>
+          <a class="brand" href="#">LibreText</a>
         </div>
       </div>
     </div>
@@ -38,18 +38,21 @@
           </div>
 
           <div class="alert alert-info">
-            <span class="logo">FontTool</span> is a tool to generate wordlists for use by typographers when testing typeface output.
+            <span class="logo">LibreText</span> generates text for typeface designers to test their typefaces with.
           </div>
 
           <div class="buttons">
-            <button id="generate" class="btn btn-primary btn-large">Generate</button> 
-            <label>a wordlist in</label>
-            <select class="span2" name="language"><optgroup label="Latin"></optgroup></select>
-             <label>using characters</label>
+            <label>Language: </label>
+            <select class="span2" name="language">
+              <optgroup label="Latin">
+              </optgroup>
+             </select>
+             <label>Characters: </label>
              <input class="span2" type="text" placeholder="AEiou" name="characters">
+             <button data-action="wordlist" class="btn btn-primary btn-large">Generate</button> 
           </div>
         
-          <div id="wordlist">Your wordlist will appear here.</div>  
+          <div id="wordlist">Pick a language, type in the characters your font has, click Generate, and your generated text appears here</div>   
         </div>
 
       <div class="options row">
@@ -69,7 +72,7 @@
            <li>
               <label>
                 <input type="checkbox" name="punctuation">
-                <span>Insert punctuation (if available)</span>
+                <span>Insert punctuation</span>
               </label>
             </li>
 
@@ -120,8 +123,11 @@
     </div>
 
     <footer class="container">
-      <p>Released under GNU Affero GPL. Fork us on
-        <a href="https://github.com/" target="_blank">GitHub</a>.
+      <p>Copyright &copy;  2012, Gareth Price, Dave Crossland. 
+         Licensed under the 
+         <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">Affero GPL</a>.
+         Please contribute to this project – its easy with 
+         <a href="https://github.com/garethsprice/fonttool" target="_blank">GitHub</a>.
       </p>
     </footer>
     

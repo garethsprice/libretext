@@ -1,0 +1,26 @@
+LibreText
+=========
+
+LibreText generates text for typeface designers to test their typefaces with.
+
+Pick a language, type in the characters your font has, click Generate, and
+this tool generates text using words that only contain those characters.  
+
+History
+-------
+
+LibreText was started by Dave Crossland <dave@understandingfonts.com>
+and Gareth Price <gareth@garethsprice.com> as a libre software replacement
+for several proprietary typeface design text generator programs.
+
+Source Code
+-----------
+
+To check out the sourcecode, find this project on GitHub at
+https://github.com/garethsprice/fonttool
+
+License
+-------
+
+This project is licensed under the GNU Affero GPL, which you can read
+at http://www.gnu.org/licenses/agpl-3.0.html
