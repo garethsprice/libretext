@@ -41,8 +41,7 @@
           </div>
 
           <div class="buttons">
-            <button data-action="wordlist" class="btn btn-primary btn-large">Generate</button> 
-            <label>a wordlist in</label>
+            <label>Language: </label>
             <select class="span2" name="language">
               <optgroup label="Latin">
                 <option>English</option>
@@ -55,11 +54,12 @@
                 <option>Turkish</option>
               </optgroup>
              </select>
-             <label>using characters</label>
+             <label>Characters: </label>
              <input class="span2" type="text" placeholder="AEiou" name="characters">
+             <button data-action="wordlist" class="btn btn-primary btn-large">Generate</button> 
           </div>
         
-          <div id="wordlist">Your wordlist will appear here.</div>
+          <div id="wordlist">Pick a language, type in the characters your font has, click Generate, and your generated text appears here</div>
           <div class="lower-buttons">
             <a class="btn" id="copy" href="#"><i class="icon-file"></i> Copy to clipboard</a>
           </div>    
@@ -82,7 +82,7 @@
            <li>
               <label>
                 <input type="checkbox" name="punctuation">
-                <span>Insert punctuation (if available)</span>
+                <span>Insert punctuation</span>
               </label>
             </li>
 
