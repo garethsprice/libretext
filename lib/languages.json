@@ -1,0 +1,29 @@
+{
+  "english" : {
+    "name" : "English",
+    "punctuation" : [
+      ",",
+      ".",
+      "-",
+      "!",
+      "?",
+      ":",
+      ";"
+    ]
+  },
+  "french" : {
+    "characters" : [
+      "&agrave;",
+      "&Agrave;",
+      "&acirc;",
+      "&Acirc;"
+    ],
+    "name" : "French"
+  },
+  "german" : {
+    "characters" : [
+      "b"
+    ],
+    "name" : "German"
+  }
+}
