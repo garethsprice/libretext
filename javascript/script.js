@@ -1,3 +1,3 @@
 /**
- * Javascript for FontTool
+ * Javascript for LibreText
  */
