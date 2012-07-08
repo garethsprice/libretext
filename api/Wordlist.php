@@ -36,6 +36,11 @@ class Wordlist {
     $time_start = microtime(TRUE);
     // Return the first N results from the grep, stripping keys showing line number
     $wordlist = array_slice(array_values(preg_grep($regex, $file)), 0, $this->options['resultlimit']);
+    
+    // Trim newline characters from each word in the wordlist
+    for($i=0; $i<sizeof($wordlist); $i++) {
+      $wordlist[$i] = trim($wordlist[$i]);
+    }
     $benchmark = microtime(TRUE) - $time_start;
     
     return array(

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css" />
     <link rel="stylesheet" href="stylesheets/style.css" />
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"></script>
     <script src="javascript/script.js"></script>
   </head>
@@ -26,7 +27,7 @@
     </div>
 
     <div class="container">
-      <form class="form-inline">
+      <form id="wordlistgenerator" class="form-inline">
         <div class="editorArea">
           <div class="alert alert-error" style="display:none;">
             Failure.
@@ -41,28 +42,14 @@
           </div>
 
           <div class="buttons">
-            <button data-action="wordlist" class="btn btn-primary btn-large">Generate</button> 
+            <button id="generate" class="btn btn-primary btn-large">Generate</button> 
             <label>a wordlist in</label>
-            <select class="span2" name="language">
-              <optgroup label="Latin">
-                <option>English</option>
-                <option>French</option>
-                <option>German</option>
-                <option>Spanish</option>
-                <option>Catalan</option>
-                <option>Portuguese</option>
-                <option>Dutch</option>
-                <option>Turkish</option>
-              </optgroup>
-             </select>
+            <select class="span2" name="language"><optgroup label="Latin"></optgroup></select>
              <label>using characters</label>
              <input class="span2" type="text" placeholder="AEiou" name="characters">
           </div>
         
-          <div id="wordlist">Your wordlist will appear here.</div>
-          <div class="lower-buttons">
-            <a class="btn" id="copy" href="#"><i class="icon-file"></i> Copy to clipboard</a>
-          </div>    
+          <div id="wordlist">Your wordlist will appear here.</div>  
         </div>
 
       <div class="options row">
