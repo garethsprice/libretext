@@ -14,6 +14,7 @@ class Wordlist {
     'transformcase' => FALSE, 
     'transformcaseto' => FALSE,
     'resultlimit' => 1000,
+    'limitlength' => FALSE,
     'minlength' => 2,
     'maxlength' => 32,
   );
@@ -23,11 +24,16 @@ class Wordlist {
    */
   public function generate() {
     $filepath = 'wordlists/' . $this->language . '.txt';
-    
+
     if(!is_readable($filepath)) {
       return array('error' => 'Could not open wordlist for language ' . $this->language);
     }
     $file = file($filepath);
+    
+    if(!$this->options['limitlength']) {
+      $this->options['minlength'] = 1;
+      $this->options['maxlength'] = 32;
+    }
     
     $regex = '/^[' . $this->characters . ']{' . $this->options['minlength'] . ',' . $this->options['maxlength'] . '}$/u';
     if($this->options['ignorecase']) $regex .= 'i';

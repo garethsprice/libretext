@@ -30,8 +30,14 @@ foreach(array_keys($strings) as $key) {
 
 foreach(array_keys($options) as $key) {
   if(!empty($_POST[$key])) {
-    // No need to sanitize as we don't use the value directly
-    $options[$key] = TRUE;
+    // If the options are set to a boolean by default, don't pass the value - just set TRUE
+    // this is because forms usually return "on" from the browser which !== TRUE in PHP.
+    if(is_bool($options[$key])) {
+      $options[$key] = TRUE;
+    } else {
+      filter_input(INPUT_POST, 'key', FILTER_SANITIZE_STRING);
+      $options[$key] = $_POST[$key];
+    }
   }
 }
 

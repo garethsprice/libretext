@@ -1,29 +1,17 @@
-{
-  "english" : {
-    "name" : "English",
-    "punctuation" : [
-      ",",
-      ".",
-      "-",
-      "!",
-      "?",
-      ":",
-      ";"
-    ]
+[
+  {
+    "name": "English",
+    "alphabet": "Latin",
+    "punctuation": ["!", ",", ".", "?"],
+    "numbers": [0,1,2,3,4,5,6,7,8,9]
   },
-  "french" : {
-    "characters" : [
-      "&agrave;",
-      "&Agrave;",
-      "&acirc;",
-      "&Acirc;"
-    ],
-    "name" : "French"
+  {
+    "name": "German",
+    "alphabet": "Latin"
   },
-  "german" : {
-    "characters" : [
-      "b"
-    ],
-    "name" : "German"
+  {
+    "name": "French",
+    "alphabet": "Latin",
+    "specialCharacters": ["&acirc;", "&Acirc;"]
   }
-}
+]
