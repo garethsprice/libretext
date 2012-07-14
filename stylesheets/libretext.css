@@ -4,7 +4,19 @@ html, body {
 }
 
 body {
+	background: url('../images/bg.jpg') repeat;
+	height: auto;
+	min-height: 100%;
+}
+
+body > .container {
 	padding-top: 60px;
+}
+
+.navbar .brand {
+	font-family: 'Lobster', cursive;
+	font-size: 2em;
+	color: #fffef8;
 }
 
 .buttons .btn-primary {
@@ -21,7 +33,7 @@ body {
 	width: 100%;
 	min-height: 200px;
 	max-height: 375px;
-	background: #fff;
+	background: #fffef8;
 	margin: 8px 0;
 	padding: 10px;
 	border-radius: 3px;
@@ -29,6 +41,10 @@ body {
 	font-size: 1.2em;
 	color: #777;
 	overflow: auto;
+}
+
+input[type=text] {
+	background-color: #fffef8;
 }
 
 .options ul {
