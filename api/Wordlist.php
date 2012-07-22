@@ -37,7 +37,20 @@ class Wordlist {
       $this->options['maxlength'] = 32;
     }
     
-    $regex = '/^[' . $this->characters . ']{' . $this->options['minlength'] . ',' . $this->options['maxlength'] . '}$/u';
+    if($this->options['startuppercase']) {
+      preg_match_all('/[A-Z]/', $this->characters, $uppercase);
+      if(sizeof($uppercase[0])) {
+        $lowercase = array_diff(str_split($this->characters), $uppercase[0]);
+        $match_target = '['.implode('', $uppercase[0]).']['.implode('', $lowercase).']';
+      } 
+    }
+    
+    if(empty($match_target)) {
+      $match_target = '['.$this->characters.']';
+    }
+
+    $regex = '/^' . $match_target . '{' . $this->options['minlength'] . ',' . $this->options['maxlength'] . '}$/u';  
+    
     if($this->options['ignorecase']) $regex .= 'i';
     
     // Use microtime to record execution time for benchmarking
