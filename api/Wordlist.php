@@ -23,7 +23,9 @@ class Wordlist {
    * Return array containing wordlist, timestamp and benchmark
    */
   public function generate() {
-    $filepath = 'wordlists/' . $this->language . '.txt';
+    $language = strtolower($this->language);
+    
+    $filepath = dirname(__FILE__) . '/wordlists/' . $language . '.txt';
 
     if(!is_readable($filepath)) {
       return array('error' => 'Could not open wordlist for language ' . $this->language);
