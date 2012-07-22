@@ -22,11 +22,6 @@ $(function() {
 		model: Language,
 		url: 'lib/languages.json'
 	});
-
-	var Languages = Backbone.Collection.extend({
-		model: Language,
-		url: 'lib/languages.json'
-	});
 	
 	var AppView = Backbone.View.extend({
 		el: $('body'),
@@ -150,6 +145,11 @@ $(function() {
 			
 			$.ajax({url: 'api/', type:'POST', data: $('#wordlistgenerator').serialize(), success: function(response) {
 				if(typeof response !== "object") response = $.parseJSON(response);
+				
+				if(typeof response.error !== "undefined") {
+					alert(response.error);
+					return false;
+				}
 				
 				_this.enteredText = '';
 			  $.each(response.wordlist, function(index, data) {
