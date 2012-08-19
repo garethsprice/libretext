@@ -7,15 +7,6 @@ $(function() {
 	var enteredText = '';
 	var processedText = '';
 
-	var diacritics = {
-	  "&Aacute;" : "A",
-	  "&Acirc;" : "A",
-	  "&Agrave;" : "A",
-	  "&aacute;" : "a",
-	  "&acirc;" : "a",
-	  "&agrave;" : "a"
-	};
-		
 	var Language = Backbone.Model.extend({});
 	
 	var Languages = Backbone.Collection.extend({
@@ -30,7 +21,6 @@ $(function() {
 			'change input[name=transformcase],select[name=transformcaseto]': 'changeCase',
 			'keyup input[name=characters]': 'generateWordlist',
 			'click #characterEntry a': 'appendCharacter',
-			'click #generate': 'clickGenerateWordlist',
 			'click #options': 'generateWordlist',
 			'change #options select': 'generateWordlist'
 		},
@@ -64,6 +54,8 @@ $(function() {
 				$('#characterEntry').parent().hide();
 			}
 			
+			this.generateWordlist();
+			
 			return false;
 		},
 		appendCharacter: function(event) {
@@ -71,6 +63,7 @@ $(function() {
 				value = $(event.target).text();
 				$('input[name=characters]').val( $('input[name=characters]').val() + value );
 				$(event.target).attr('disabled', true);
+				this.generateWordlist();
 			}
 			return false;
 		},
@@ -99,49 +92,19 @@ $(function() {
 
 			_this.processedText = outputText;
 		},
-		trimDiacritics: function(event) {
-			var _this = this;
-			if(!$('input[name=trimdiacritics]').is(':checked')) {
-				return;
-			}			
-			
-			$.each(diacritics, function(encodedEntity, replacement) {
-				var decoded = $("<div/>").html(encodedEntity).text();
-				var decodedExpr = new RegExp(decoded, "g");
-				_this.processedText = _this.processedText.replace(decodedExpr, replacement);
-			});	
-		},
-		insertNumbers: function(event) {
-			var _this = this;
-			
-			if(!$('input[name=numbers]').is(':checked')) {
-				return;
-			}			
-			
-			_this.processedText = _this.processedText.replace(/ /g, function($1) {
-				numbers = language.get('numbers');
-
-				// Insert numbers between approx (100-.75)*100 = 25% of the words
-				if(Math.random() > .75) {
-					var number = '';
-					for(i=1; i<Math.floor(Math.random()*8); i++) {
-						number = number + numbers[Math.floor(Math.random()*numbers.length)];
-					}
-					
-					if(number.length) {
-						$1 = ' ' + number + ' ';
-					}
-				}
-				
-				return $1;
-			});
-		},
-		clickGenerateWordlist: function(event) {
-			this.generateWordlist();
-			return false;
+		checkForUppercase: function(event) {
+		  var _this = this;
+		  if(!/[A-Z]/.test( $('input[name=characters]').val() ) ) {
+		    $('.options li label[for=startuppercase]').hide();
+		  } else {
+		    $('.options li label[for=startuppercase]').show();
+		  }
+		  return;
 		},
 		generateWordlist: function(event) {
 			var _this = this;
+			
+			_this.checkForUppercase();
 			
 			$.ajax({url: 'api/', type:'POST', data: $('#wordlistgenerator').serialize(), success: function(response) {
 				if(typeof response !== "object") response = $.parseJSON(response);
@@ -158,8 +121,6 @@ $(function() {
 				
 				_this.processedText = _this.enteredText;
 				_this.changeCase();
-				_this.trimDiacritics();
-				_this.insertNumbers();
 				$('#wordlist').html(_this.processedText);
 	    }});
 		}
