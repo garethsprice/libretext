@@ -6,6 +6,15 @@ LibreText generates text for typeface designers to test their typefaces with.
 Pick a language, type in the characters your font has, click Generate, and
 this tool generates text using words that only contain those characters.  
 
+Installation
+------------
+
+Simply clone the git repository into a directory that is served by a PHP-enabled web server. 
+
+$ cd /var/www/;
+$ git clone https://github.com/garethsprice/libretext.git;
+$ open "http://localhost/libretext";
+
 History
 -------
 
