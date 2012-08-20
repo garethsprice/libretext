@@ -30,7 +30,7 @@ body > .container {
 #wordlist {
 	box-sizing: border-box;
 	white-space: pre-wrap;
-	width: 100%;
+	width: 50%;
 	min-height: 200px;
 	max-height: 375px;
 	background: #fffef8;
