@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <title>LibreText</title>
-
+    <link rel="shortcut icon" href="favicon.ico">
     <meta charset="utf-8">
-    <meta name="description" content="A tool for generating font wordlists">
+    <meta name="description" content="Font design test text generator, libre.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Dave Crossland">
     <meta name="author" content="Gareth Price">
@@ -42,21 +42,17 @@
           </div>
 
           <div class="alert alert-info">
-            <span class="logo">LibreText</span> generates text for typeface designers to test their typefaces with. If you are a web developer and typeface designer, please contribute to this project – its easy with GitHub.
+            <span class="logo">LibreText</span> generates text for typeface designers to test their typefaces with.
+            If you are typeface designer, please suggest ideas on the <a href="https://github.com/garethsprice/libretext/issues">GitHub Issues</a> page.
           </div>
 
           <div class="buttons">
-            <label>Language: </label>
-            <select class="span2" name="language">
-              <optgroup label="Latin">
-              </optgroup>
-             </select>
              <label>Characters: </label>
-             <input class="span2" type="text" name="characters" autocomplete="off">
+             <input class="span4" type="text" name="characters" autocomplete="off">
              <!--<button id="generate" class="btn btn-primary btn-large">Generate</button> -->
           </div>
         
-          <div id="wordlist">Pick a language, type in the characters your font has, and your generated text appears here</div>   
+          <div id="wordlist">Type the characters your font has into the box above, and your generated text will appear here. Options can be selected below.</div>   
         </div>
 
       <div class="options row">
@@ -64,6 +60,13 @@
           <h3>Options</h3>
 
           <ul class="inputs-list" id="options">
+            <li>
+              <label>Language: </label>
+              <select class="span2" name="language">
+                <optgroup label="Latin">
+                </optgroup>
+               </select>
+            </li>
             <li>
               <label>
                 <input type="checkbox" name="limitlength">
@@ -98,13 +101,6 @@
             </li>
 
             <li>
-              <label for="startuppercase">
-                <input type="checkbox" name="startuppercase">
-                <span>Start all words with uppercase characters</span>
-              </label>
-            </li>
-
-            <li>
               <label>
                 <input type="checkbox" name="transformcase">
                 <span>Transform case to</span>
@@ -115,6 +111,14 @@
                 <option value="title">Title Case</option>
                </select>
             </li>
+
+            <li>
+              <label for="startuppercase">
+                <input type="checkbox" name="startuppercase">
+                <span>Start all words with uppercase characters</span>
+              </label>
+            </li>
+
           </ul>
         </div>
 
@@ -136,8 +140,8 @@
       <p>Copyright &copy;  2012, Gareth Price, Dave Crossland. 
          Licensed under the 
          <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">Affero GPL</a>.
-         Please contribute to this project – its easy with 
-         <a href="https://github.com/garethsprice/fonttool" target="_blank">GitHub</a>.
+         If you are a PHP web developer, please contribute to this project – its easy with 
+         <a href="https://github.com/garethsprice/libretext" target="_blank">GitHub</a>.
       </p>
     </footer>
     
